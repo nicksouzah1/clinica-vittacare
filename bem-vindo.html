@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bem-vindo – VittaCare</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="logo">VittaCare<small>CLÍNICA MÉDICA</small></div></header>
+
+<main>
+  <section class="card welcome" aria-labelledby="titulo">
+    <div class="avatar" id="avatar" aria-hidden="true"></div>
+    <h1 id="titulo">Bem-vindo(a)!</h1>
+    <p class="mail" id="email"></p>
+    <p class="sub" style="margin-top:14px">Você está autenticado no sistema da clínica.</p>
+    <button class="btn ghost" type="button" id="sair">Sair do sistema</button>
+  </section>
+</main>
+
+<footer>VittaCare Franchising LTDA © 2026</footer>
+<script src="auth.js"></script>
+<script>
+(function () {
+  // Página protegida: sem login, volta para a tela de entrada
+  var u = Auth.usuario();
+  if (!u) { location.replace('login.html'); return; }
+
+  document.getElementById('titulo').textContent = 'Bem-vindo(a), ' + u.nome + '!';
+  document.getElementById('email').textContent = u.email;
+  document.getElementById('avatar').textContent = u.nome.charAt(0).toUpperCase();
+
+  document.getElementById('sair').addEventListener('click', function () {
+    Auth.sair();
+    location.href = 'login.html';
+  });
+})();
+</script>
+</body>
+</html>

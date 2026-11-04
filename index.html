@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VittaCare – Clínica médica popular em Sorocaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--brand:#6200ea;--brand-ink:#6200ea;--bg:#f0ffff;--panel:#dff5fb;--card:#fff;--text:#14121f;--muted:#4a4560;--teal:#1b7f96;--soft:#c9b3ff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--brand-ink:#b794ff;--bg:#0f1220;--panel:#1a2236;--card:#171b2c;--text:#f1eefc;--muted:#b9b3d0;--teal:#6fd3e8}}
+:root[data-theme="dark"]{--brand-ink:#b794ff;--bg:#0f1220;--panel:#1a2236;--card:#171b2c;--text:#f1eefc;--muted:#b9b3d0;--teal:#6fd3e8}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--soft);outline-offset:2px}
+header{background:var(--brand);color:#fff;position:sticky;top:0;z-index:5;padding:14px 5vw;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:1.6rem;font-weight:600;letter-spacing:-.02em}
+.logo small{display:block;font-size:.55rem;font-weight:400;letter-spacing:.15em;margin-top:-4px}
+nav{display:flex;gap:26px;flex-wrap:wrap}
+nav a{color:#fff;text-underline-offset:4px}
+nav a[aria-current="page"]{text-decoration:underline;text-decoration-thickness:2px}
+nav a:not([aria-current]){text-decoration:underline;text-decoration-color:rgba(255,255,255,.5)}
+.btn{display:inline-block;border:0;border-radius:999px;padding:11px 22px;font:500 .95rem Inter,sans-serif;text-decoration:none;cursor:pointer;background:var(--brand);color:#fff}
+.btn.light{background:#fff;color:var(--brand)}
+.btn.sm{padding:7px 18px;font-size:.85rem}
+.btn.outline{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px #fff}
+.btn.outline:hover{background:rgba(255,255,255,.15)}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+main{max-width:1100px;margin:0 auto;padding:28px 5vw 56px}
+.page{display:none}.page.on{display:block}
+h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.01em}
+.title{color:var(--brand-ink);font-size:1.6rem;margin:44px 0 22px}
+.welcome{font-size:1.25rem;font-weight:600;margin-bottom:12px}.welcome span{color:var(--brand-ink)}
+.hero{position:relative;border-radius:28px;min-height:340px;overflow:hidden;background:linear-gradient(135deg,#7c2cf0 0%,#3b0ca3 55%,#1b7f96 120%);display:flex;align-items:center;padding:28px}
+.hero .deco{position:absolute;right:-30px;top:-30px;width:420px;max-width:70%;opacity:.16;color:#fff}
+.hero .word{position:absolute;right:6%;bottom:12%;font-size:clamp(2.4rem,8vw,5.5rem);font-weight:600;color:rgba(255,255,255,.22);letter-spacing:-.03em}
+.glass{position:relative;background:rgba(255,255,255,.93);color:#14121f;border-radius:22px;padding:22px 24px;max-width:430px}
+.glass h1{font-size:1.7rem;line-height:1.2;margin-bottom:8px}
+.glass p{margin:0;font-size:.9rem;color:#3d3955}
+.addr{display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.93);color:#14121f;border-radius:20px;padding:12px 16px;font-size:.82rem;margin-top:14px;max-width:340px}
+.hero-in{position:relative}
+.feats{background:var(--card);border-radius:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;padding:18px 22px;margin-top:16px;text-align:center}
+.feats div{color:var(--teal);font-size:.88rem;display:flex;flex-direction:column;align-items:center;gap:6px}
+.feats svg,.addr svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.addr svg{width:22px;height:22px;color:var(--brand);flex:none}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.pic{position:relative;border-radius:28px;min-height:360px;display:flex;align-items:flex-end;padding:14px;overflow:hidden;color:#fff}
+.pic.a{background:linear-gradient(160deg,#9b5cff,#4a14c4)}
+.pic.b{background:linear-gradient(160deg,#3fb6cf,#1b5f8a)}
+.pic .ico{position:absolute;top:26px;left:50%;transform:translateX(-50%);font-size:5.5rem;opacity:.9}
+.pic .box{background:rgba(255,255,255,.9);color:#14121f;border-radius:20px;padding:16px;width:100%}
+.pic h3{color:var(--brand);font-size:1.05rem;margin-bottom:4px}
+.pic p{margin:0 0 12px;font-size:.88rem}
+/* IMAGENS: ocupam todo o fundo do bloco; se o arquivo não existir, o degradê aparece */
+.hero .bg,.pic .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pic .box{position:relative}
+.sect{background:var(--panel);border-radius:28px;padding:28px;margin-top:8px}
+.pill{background:var(--card);border-radius:999px;padding:14px 26px;font-size:.95rem}
+.pill.t{background:var(--panel)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-bottom:14px}
+.inner{background:var(--card);border-radius:24px;padding:16px;margin-bottom:14px}
+.inner .pill{text-align:center}
+.resp{background:var(--brand);color:#fff;border-radius:28px;padding:20px 30px;font-size:.95rem}
+.lead{max-width:62ch;color:var(--muted);font-size:1.05rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:28px 0}
+.stat{background:var(--card);border-radius:22px;padding:22px;text-align:center}
+.stat b{display:block;font-size:2.2rem;color:var(--brand-ink);font-weight:600;letter-spacing:-.02em}
+.stat span{color:var(--muted);font-size:.9rem}
+.vals{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.val{background:var(--card);border-radius:24px;padding:24px}
+.val h3{color:var(--brand-ink);margin:8px 0 6px;font-size:1.1rem}
+.val p{margin:0;color:var(--muted);font-size:.92rem}
+.val .em{font-size:1.9rem}
+.specs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.spec{background:var(--card);border-radius:24px;padding:22px;display:flex;flex-direction:column;gap:6px}
+.spec .em{width:52px;height:52px;border-radius:50%;background:var(--panel);display:grid;place-items:center;font-size:1.6rem;margin-bottom:6px}
+.spec h3{color:var(--brand-ink);font-size:1.05rem}
+.spec p{margin:0 0 10px;font-size:.9rem;color:var(--muted);flex:1}
+.cta{background:var(--brand);color:#fff;border-radius:28px;padding:28px;margin-top:28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.cta h3{font-size:1.3rem}.cta p{margin:4px 0 0;opacity:.9}
+footer{background:var(--brand);color:#fff;padding:36px 5vw 22px}
+.fcols{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:26px}
+footer h4{margin:0 0 8px;font-size:.85rem}footer p{margin:0 0 10px;font-size:.75rem;opacity:.9}
+footer .btn{background:var(--soft);color:#2a0a6e;font-size:.75rem;padding:6px 12px;border-radius:8px;margin:0 6px 6px 0}
+.legal{max-width:1100px;margin:26px auto 0;border-top:1px solid rgba(255,255,255,.3);padding-top:14px;font-size:.7rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:640px){.hero{padding:16px}.glass h1{font-size:1.4rem}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="cal" viewBox="0 0 40 40"><rect x="5" y="8" width="30" height="27" rx="4"/><path d="M5 16h30M13 4v7M27 4v7"/><circle cx="27" cy="27" r="5"/><path d="M27 24.5V27l2 1.5"/></symbol>
+<symbol id="money" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15"/><path d="M24 14c-1-1.5-8-2-8 2.500 0 5 8 2.500 8 7 0 4.500-8 4-9 1.500M20 10v20"/></symbol>
+<symbol id="steth" viewBox="0 0 40 40"><path d="M9 5v10a7 7 0 0 0 14 0V5M16 22v4a8 8 0 0 0 16 0v-3"/><circle cx="32" cy="19" r="3.500"/></symbol>
+<symbol id="heart" viewBox="0 0 40 40"><path d="M20 34S5 25 5 14.500A7.500 7.500 0 0 1 20 11a7.500 7.500 0 0 1 15 3.500C35 25 20 34 20 34z"/><path d="M8 21h7l3-6 4 10 3-4h7"/></symbol>
+<symbol id="pin" viewBox="0 0 24 24"><path d="M12 22s7-6.500 7-12a7 7 0 0 0-14 0c0 5.500 7 12 7 12z"/><circle cx="12" cy="10" r="2.500"/></symbol>
+<symbol id="plus" viewBox="0 0 40 40"><path d="M16 4h8v12h12v8H24v12h-8V24H4v-8h12z" fill="currentColor" stroke="none"/></symbol>
+</svg>
+
+<header>
+  <a class="logo" href="#inicio" aria-label="VittaCare – início">
+    <svg width="36" height="36" style="color:#c9b3ff"><use href="#plus"/></svg>
+    <span>VittaCare<small>CLÍNICA MÉDICA</small></span>
+  </a>
+  <nav aria-label="Principal">
+    <a href="#inicio" data-p="inicio">Início</a>
+    <a href="#sobre" data-p="sobre">Sobre nós</a>
+    <a href="#especialidades" data-p="especialidades">Especialidades</a>
+  </nav>
+  <div class="actions">
+    <a class="btn light" href="#contato">Entre em contato</a>
+    <!-- Botão de login: abre a página login.html (deixe os dois arquivos na mesma pasta) -->
+    <a class="btn outline" href="login.html">Entrar</a>
+  </div>
+</header>
+
+<main>
+<!-- PÁGINA 1 -->
+<section class="page" id="p-inicio">
+  <div class="welcome">Bem-vindo à unidade de <span>Sorocaba</span></div>
+  <div class="hero">
+    <svg class="deco" viewBox="0 0 40 40" aria-hidden="true"><use href="#plus"/></svg>
+    <div class="word" aria-hidden="true">VittaCare</div>
+    <!-- IMAGEM do banner principal -->
+    <img class="bg" src="medicas.jpeg" alt="Atendimento na unidade VittaCare Sorocaba" onerror="this.style.display='none'">
+    <div class="hero-in">
+      <div class="glass">
+        <h1>Clínica médica popular com consultas e exames a preços acessíveis</h1>
+        <p>A melhor alternativa ao Plano de Saúde e ao SUS com serviços médicos sem fila de espera.</p>
+      </div>
+      <div class="addr"><svg stroke="currentColor" fill="none" stroke-width="2"><use href="#pin"/></svg><span>Jardim das Petúnias, Avenida General Carneiro, 242 – Sorocaba</span></div>
+    </div>
+  </div>
+  <div class="feats">
+    <div><svg><use href="#cal"/></svg>Agendamento rápido</div>
+    <div><svg><use href="#money"/></svg>Preços acessíveis</div>
+    <div><svg><use href="#steth"/></svg>+20 especialidades</div>
+    <div><svg><use href="#heart"/></svg>Saúde sem mensalidade</div>
+  </div>
+  <h2 class="title">O que podemos fazer por você</h2>
+  <div class="cards">
+    <div class="pic a"><div class="ico" aria-hidden="true">🩺</div>
+      <!-- IMAGEM do card Consultas médicas -->
+      <img class="bg" src="nicoleatendendo.jpeg" alt="Consulta médica" onerror="this.style.display='none'"><div class="box"><h3>Consultas médicas</h3><p>Atendimento médico presencial ou online, através da Teleconsulta. Sua saúde com alta qualidade e o toque humano que você merece.</p><a class="btn sm" href="#especialidades">Saiba mais</a></div></div>
+    <div class="pic b"><div class="ico" aria-hidden="true">🧪</div>
+      <!-- IMAGEM do card Exames -->
+      <img class="bg" src="exames.jpeg" alt="Coleta de exames" onerror="this.style.display='none'"><div class="box"><h3>Exames de laboratório e imagens</h3><p>Conte com uma infraestrutura moderna para realizar seus exames com agilidade e resultados confiáveis, garantindo um diagnóstico preciso.</p><a class="btn sm" href="#especialidades">Saiba mais</a></div></div>
+  </div>
+</section>
+
+<!-- PÁGINA 2 -->
+<section class="page" id="p-sobre">
+  <h1 class="title" style="margin-top:12px">Sobre nós</h1>
+  <p class="lead">A VittaCare nasceu para que ninguém precise escolher entre esperar meses na fila ou pagar uma mensalidade que não cabe no bolso. Somos uma rede de clínicas particulares com consultas e exames a preços acessíveis, atendimento humano e agendamento sem burocracia.</p>
+  <div class="stats">
+    <div class="stat"><b>+20</b><span>especialidades médicas</span></div>
+    <div class="stat"><b>0</b><span>mensalidade ou taxa de adesão</span></div>
+    <div class="stat"><b>6 dias</b><span>de atendimento por semana</span></div>
+    <div class="stat"><b>2</b><span>formas de consulta: presencial e online</span></div>
+  </div>
+  <h2 class="title">Nossos valores</h2>
+  <div class="vals">
+    <div class="val"><div class="em">🤝</div><h3>Acolhimento</h3><p>Cada paciente é ouvido com atenção, sem pressa e sem julgamentos.</p></div>
+    <div class="val"><div class="em">💜</div><h3>Acesso para todos</h3><p>Preços justos e transparentes, informados antes do atendimento.</p></div>
+    <div class="val"><div class="em">🔬</div><h3>Qualidade</h3><p>Equipe qualificada e estrutura moderna para diagnósticos precisos.</p></div>
+  </div>
+  <h2 class="title">Como funciona</h2>
+  <div class="vals">
+    <div class="val"><h3>1. Agende</h3><p>Pelo WhatsApp, telefone ou na própria unidade, em poucos minutos.</p></div>
+    <div class="val"><h3>2. Seja atendido</h3><p>Consulta presencial ou por Teleconsulta, no dia e horário combinados.</p></div>
+    <div class="val"><h3>3. Faça seus exames</h3><p>Coleta e imagens na mesma unidade, com resultados confiáveis.</p></div>
+  </div>
+</section>
+
+<!-- PÁGINA 3 -->
+<section class="page" id="p-especialidades">
+  <h1 class="title" style="margin-top:12px">Especialidades</h1>
+  <p class="lead">Mais de 20 especialidades e exames em um só lugar. Fale com a gente para conferir valores e horários disponíveis.</p>
+  <div class="specs" style="margin-top:24px">
+    <div class="spec"><div class="em">🩺</div><h3>Clínica geral</h3><p>Check-up, acompanhamento e encaminhamentos.</p><a class="btn sm" href="#contato">Agendar</a></div>
+    <div class="spec"><div class="em">❤️</div><h3>Cardiologia</h3><p>Cuidado com o coração, pressão e prevenção.</p><a class="btn sm" href="#contato">Agendar</a></div>
+    <div class="spec"><div class="em">🧒</div><h3>Pediatria</h3><p>Acompanhamento do crescimento e da saúde infantil.</p><a class="btn sm" href="#contato">Agendar</a></div>
+    <div class="spec"><div class="em">🌸</div><h3>Ginecologia</h3><p>Saúde da mulher em todas as fases da vida.</p><a class="btn sm" href="#contato">Agendar</a></div>
+    <div class="spec"><div class="em">🧴</div><h3>Dermatologia</h3><p>Cuidados com a pele, cabelos e unhas.</p><a class="btn sm" href="#contato">Agendar</a></div>
+    <div class="spec"><div class="em">🦴</div><h3>Ortopedia</h3><p>Dores, lesões e saúde dos ossos e articulações.</p><a class="btn sm" href="#contato">Agendar</a></div>
+    <div class="spec"><div class="em">👁️</div><h3>Oftalmologia</h3><p>Exame de vista, grau e saúde dos olhos.</p><a class="btn sm" href="#contato">Agendar</a></div>
+    <div class="spec"><div class="em">🧠</div><h3>Psicologia</h3><p>Espaço de escuta para o seu bem-estar emocional.</p><a class="btn sm" href="#contato">Agendar</a></div>
+    <div class="spec"><div class="em">🧪</div><h3>Exames laboratoriais</h3><p>Sangue, urina e outros exames com resultados ágeis.</p><a class="btn sm" href="#contato">Agendar</a></div>
+    <div class="spec"><div class="em">📡</div><h3>Exames de imagem</h3><p>Ultrassom, raio-X e outros exames de imagem.</p><a class="btn sm" href="#contato">Agendar</a></div>
+  </div>
+  <div class="cta"><div><h3>Não encontrou a especialidade?</h3><p>Chame no WhatsApp e a gente te ajuda a encontrar.</p></div><a class="btn light" href="#contato">Fale conosco</a></div>
+</section>
+
+<!-- CONTATO (todas as páginas) -->
+<div id="contato" style="margin-top:56px">
+  <h2 class="title" style="margin-top:0">Como chegar</h2>
+  <div class="sect">
+    <div class="grid2">
+      <div class="pill t">Avenida General Carneiro, 242 – Jardim das Petúnias – Sorocaba-SP</div>
+      <div class="pill t">2ª a 6ª: das 7h00 às 19h<br>Sábado: das 7h00 às 12h</div>
+    </div>
+    <div class="inner"><div class="grid2" style="margin:0">
+      <div class="pill t">Facebook: Vittacare</div><div class="pill t">Instagram: @Vittacare</div>
+      <div class="pill t">(15) 98876-6789</div><div class="pill t">WhatsApp: (15) 98876-6789</div>
+    </div></div>
+    <div class="resp">Responsável Técnico | Claudio Pompeo Chagas Dias<br>CRM | 130305<br>CNPJ Unidade | 29.432.345/0004-49</div>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="fcols">
+    <div><strong style="font-size:1.4rem">VittaCare</strong></div>
+    <div><h4>Nós queremos te ouvir</h4><p>Fale conosco sua sugestão é muito importante para nós!</p><a class="btn" href="#contato">Fale conosco</a></div>
+    <div><h4>Seja um parceiro</h4><p>Faça parte da maior rede de clínicas particulares acessíveis do Brasil.</p><a class="btn" href="#contato">Quero fazer parte</a><a class="btn" href="#contato">Seja um franqueado</a></div>
+    <div><h4>Trabalhe conosco</h4><p>Trabalhe com a rede de clínicas particulares que mais cresce no Brasil.</p><a class="btn" href="#contato">Junte-se a nós</a></div>
+  </div>
+  <div class="legal"><span>VittaCare Franchising LTDA © 2026 | Verificar Responsável Técnico e CNPJ na página de cada unidade.</span><span>Política de Privacidade</span></div>
+</footer>
+
+<script>
+(function(){
+  var pages=['inicio','sobre','especialidades'];
+  function show(){
+    var h=(location.hash||'').replace('#','');
+    if(h==='contato'){
+      if(!document.querySelector('.page.on'))set('inicio');
+      var c=document.getElementById('contato');if(c)c.scrollIntoView({behavior:'smooth'});return;
+    }
+    set(pages.indexOf(h)>-1?h:'inicio');window.scrollTo(0,0);
+  }
+  function set(p){
+    pages.forEach(function(n){
+      document.getElementById('p-'+n).classList.toggle('on',n===p);
+    });
+    document.querySelectorAll('nav a').forEach(function(a){
+      if(a.dataset.p===p)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
+    });
+  }
+  window.addEventListener('hashchange',show);show();
+})();
+</script>
+</body>
+</html>
